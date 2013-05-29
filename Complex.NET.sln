@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Complex.NET", "Complex.NET\Complex.NET.csproj", "{538FF2D7-1688-4448-9F83-443C8FA9B979}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{1E6FF1CE-B0C6-44DB-B40B-D5CF65227930}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{538FF2D7-1688-4448-9F83-443C8FA9B979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{538FF2D7-1688-4448-9F83-443C8FA9B979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{538FF2D7-1688-4448-9F83-443C8FA9B979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{538FF2D7-1688-4448-9F83-443C8FA9B979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E6FF1CE-B0C6-44DB-B40B-D5CF65227930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6FF1CE-B0C6-44DB-B40B-D5CF65227930}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6FF1CE-B0C6-44DB-B40B-D5CF65227930}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6FF1CE-B0C6-44DB-B40B-D5CF65227930}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
