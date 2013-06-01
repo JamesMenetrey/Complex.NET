@@ -1,6 +1,6 @@
 Complex.NET
 ===========
-A simplistic Complex data type implementation in .NET.
+A simplistic complex number data type implementation for .NET written in C#.
 
 Features
 --------
