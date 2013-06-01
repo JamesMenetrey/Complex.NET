@@ -75,6 +75,36 @@
             Overloads the division operator.
             </summary>
         </member>
+        <member name="M:Binarysharp.Maths.Complex.Power(System.Double)">
+            <summary>
+            Returns the complex number raised to a power specified by a double-precision floating-point number.
+            </summary>
+            <param name="power">A double-precision floating-point number that specifies a power.</param>
+            <returns>The complex number raised to the specified power.</returns>
+        </member>
+        <member name="M:Binarysharp.Maths.Complex.FirstRoot(System.Double)">
+            <summary>
+            Return the first root of the complex number using a double-precision floating-point number.
+            </summary>
+            <param name="root">A double-precision floating-point number that specifies a root.</param>
+            <returns>A complex number.</returns>
+        </member>
+        <member name="M:Binarysharp.Maths.Complex.AllRoots(System.Double)">
+            <summary>
+            Returns all nth roots of the complex number using a double-precision floating-point number.
+            </summary>
+            <param name="root">A double-precision floating-point number that specifies a root.</param>
+            <returns>An array of nth roots of the complex number.</returns>
+        </member>
+        <member name="M:Binarysharp.Maths.Complex.SolveQuadraticEquation(System.Double,System.Double,System.Double)">
+            <summary>
+            Solves a quadratic equation with real coefficients written in the form: ax^2 + bx + c = 0.
+            </summary>
+            <param name="a">The quadratic coefficient (must be different from zero).</param>
+            <param name="b">The linear coefficient.</param>
+            <param name="c">The constant term.</param>
+            <returns>An array containing the solution(s).</returns>
+        </member>
         <member name="M:Binarysharp.Maths.Complex.ToString">
             <summary>
             Returns a string that represents the current object.

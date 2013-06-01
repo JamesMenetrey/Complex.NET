@@ -5,10 +5,12 @@
 * Copyright 2013 ZenLulz ~ Jämes Ménétrey
 * Released under the MIT license
 *
-* Date: 2013-05-29
+* Date: 2013-06-02
 */
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace Binarysharp.Maths
@@ -122,7 +124,7 @@ namespace Binarysharp.Maths
         /// <returns>A complex number.</returns>
         public static Complex FromPolarCoordinates(double modulus, double argument)
         {
-            return new Complex(Math.Round(modulus * Math.Cos(argument), 15), Math.Round(modulus * Math.Sin(argument), 15));
+            return new Complex((modulus * Math.Cos(argument)), (modulus * Math.Sin(argument)));
         }
         #endregion
         #region GetHashCode
@@ -183,6 +185,70 @@ namespace Binarysharp.Maths
             var numerator = left * right.Conjugate();
             var denominator = Math.Pow(right.Real, 2) + Math.Pow(right.Imaginary, 2);
             return new Complex(numerator.Real / denominator, numerator.Imaginary / denominator);
+        }
+        #endregion
+        #region Power
+        /// <summary>
+        /// Returns the complex number raised to a power specified by a double-precision floating-point number.
+        /// </summary>
+        /// <param name="power">A double-precision floating-point number that specifies a power.</param>
+        /// <returns>The complex number raised to the specified power.</returns>
+        public Complex Power(double power)
+        {
+            return FromPolarCoordinates(Math.Pow(Modulus, power), Argument * power);
+        }
+        #endregion
+        #region Roots
+        /// <summary>
+        /// Return the first root of the complex number using a double-precision floating-point number.
+        /// </summary>
+        /// <param name="root">A double-precision floating-point number that specifies a root.</param>
+        /// <returns>A complex number.</returns>
+        public Complex FirstRoot(double root)
+        {
+            return AllRoots(root).First();
+        }
+        /// <summary>
+        /// Returns all nth roots of the complex number using a double-precision floating-point number.
+        /// </summary>
+        /// <param name="root">A double-precision floating-point number that specifies a root.</param>
+        /// <returns>An array of nth roots of the complex number.</returns>
+        public IEnumerable<Complex> AllRoots(double root)
+        {
+            // Compute the modulus and the argument
+            var modulus = Math.Pow(Modulus, 1d / root);
+            var argument = Argument / root;
+
+            // Compute all roots
+            for (var i = 0; i < root; i++)
+            {
+                yield return FromPolarCoordinates(modulus, argument + ((2 * Math.PI / root) * i));
+            }
+        }
+        #endregion
+        #region SolveQuadraticEquation (static)
+        /// <summary>
+        /// Solves a quadratic equation with real coefficients written in the form: ax^2 + bx + c = 0.
+        /// </summary>
+        /// <param name="a">The quadratic coefficient (must be different from zero).</param>
+        /// <param name="b">The linear coefficient.</param>
+        /// <param name="c">The constant term.</param>
+        /// <returns>An array containing the solution(s).</returns>
+        public static Complex[] SolveQuadraticEquation(double a, double b, double c)
+        {
+            // Check that the quadratic coefficient must be different from zero
+            if (a.Equals(0d))
+                throw new ArgumentOutOfRangeException("a", "The quadratic coefficient must be different from zero.");
+
+            // Compute the discriminant
+            var delta = Math.Pow(b, 2) - 4 * a * c;
+
+            // Compute the parts of the complex solutions
+            var real = -b / (2 * a);
+            var imaginary = Math.Sqrt(Math.Abs(delta)) / (2 * a);
+
+            // Return the solutions
+            return new[] { new Complex(real, imaginary), new Complex(real, -imaginary) };
         }
         #endregion
         #region ToString
