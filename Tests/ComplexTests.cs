@@ -199,5 +199,22 @@ namespace Tests
             Assert.AreEqual(2, Math.Round(c1[3].Real, 5));
             Assert.AreEqual(-3, Math.Round(c1[3].Imaginary, 5));
         }
+
+        [TestMethod]
+        public void SolveQuadraticEquationsWithComplexCoefficients()
+        {
+            var results1 = Complex.SolveQuadraticEquation(new Complex(1, 0), new Complex(5, 4), new Complex(27, 5));
+            var results2 = Complex.SolveQuadraticEquation(new Complex(3, 0), new Complex(8, -66), new Complex(-167, -120));
+
+            Assert.AreEqual(-2, Math.Round(results1[0].Real, 5));
+            Assert.AreEqual(3, Math.Round(results1[0].Imaginary, 5));
+            Assert.AreEqual(-3, Math.Round(results1[1].Real, 5));
+            Assert.AreEqual(-7, Math.Round(results1[1].Imaginary, 5));
+
+            Assert.AreEqual(-0.66667, Math.Round(results2[0].Real, 5));
+            Assert.AreEqual(19, Math.Round(results2[0].Imaginary, 5));
+            Assert.AreEqual(-2, Math.Round(results2[1].Real, 5));
+            Assert.AreEqual(3, Math.Round(results2[1].Imaginary, 5));
+        }
     }
 }

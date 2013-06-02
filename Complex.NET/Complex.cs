@@ -186,6 +186,89 @@ namespace Binarysharp.Maths
             var denominator = Math.Pow(right.Real, 2) + Math.Pow(right.Imaginary, 2);
             return new Complex(numerator.Real / denominator, numerator.Imaginary / denominator);
         }
+        #region Implicit operators
+        /// <summary>
+        /// Defines an implicit conversion of a short to a complex number.
+        /// </summary>
+        /// <param name="value">The value to convert to a complex number.</param>
+        /// <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        public static implicit operator Complex(Int16 value)
+        {
+            return new Complex(value, 0d);
+        }
+        /// <summary>
+        /// Defines an implicit conversion of an unsigned short to a complex number.
+        /// </summary>
+        /// <param name="value">The value to convert to a complex number.</param>
+        /// <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        public static implicit operator Complex(UInt16 value)
+        {
+            return new Complex(value, 0d);
+        }
+        /// <summary>
+        /// Defines an implicit conversion of an integer to a complex number.
+        /// </summary>
+        /// <param name="value">The value to convert to a complex number.</param>
+        /// <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        public static implicit operator Complex(Int32 value)
+        {
+            return new Complex(value, 0d);
+        }
+        /// <summary>
+        /// Defines an implicit conversion of an unsigned integer to a complex number.
+        /// </summary>
+        /// <param name="value">The value to convert to a complex number.</param>
+        /// <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        public static implicit operator Complex(UInt32 value)
+        {
+            return new Complex(value, 0d);
+        }
+        /// <summary>
+        /// Defines an implicit conversion of a long to a complex number.
+        /// </summary>
+        /// <param name="value">The value to convert to a complex number.</param>
+        /// <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        public static implicit operator Complex(Int64 value)
+        {
+            return new Complex(value, 0d);
+        }
+        /// <summary>
+        /// Defines an implicit conversion of an unsigned long to a complex number.
+        /// </summary>
+        /// <param name="value">The value to convert to a complex number.</param>
+        /// <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        public static implicit operator Complex(UInt64 value)
+        {
+            return new Complex(value, 0d);
+        }
+        /// <summary>
+        /// Defines an implicit conversion of a float to a complex number.
+        /// </summary>
+        /// <param name="value">The value to convert to a complex number.</param>
+        /// <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        public static implicit operator Complex(float value)
+        {
+            return new Complex(value, 0d);
+        }
+        /// <summary>
+        /// Defines an implicit conversion of a double to a complex number.
+        /// </summary>
+        /// <param name="value">The value to convert to a complex number.</param>
+        /// <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        public static implicit operator Complex(double value)
+        {
+            return new Complex(value, 0d);
+        }
+        /// <summary>
+        /// Defines an implicit conversion of a decimal to a complex number.
+        /// </summary>
+        /// <param name="value">The value to convert to a complex number.</param>
+        /// <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        public static implicit operator Complex(decimal value)
+        {
+            return new Complex((double)value, 0d);
+        }
+        #endregion
         #endregion
         #region Power
         /// <summary>
@@ -249,6 +332,30 @@ namespace Binarysharp.Maths
 
             // Return the solutions
             return new[] { new Complex(real, imaginary), new Complex(real, -imaginary) };
+        }
+        /// <summary>
+        /// Solves a quadratic equation with complex coefficients written in the form: ax^2 + bx + c = 0.
+        /// </summary>
+        /// <param name="a">The quadratic coefficient (must be different from zero).</param>
+        /// <param name="b">The linear coefficient.</param>
+        /// <param name="c">The constant term.</param>
+        /// <returns>>An array containing the solution(s).</returns>
+        public static Complex[] SolveQuadraticEquation(Complex a, Complex b, Complex c)
+        {
+            // Check that the quadratic coefficient must be different from zero
+            if(a.Equals(0d))
+                throw new ArgumentOutOfRangeException("a", "The quadratic coefficient must be different from zero.");
+
+            // Compute the discriminant
+            var delta = b.Power(2) - new Complex(4 * ((a * c).Real), 4 * (a * c).Imaginary);
+
+            // Compute the parts of the solutions
+            var bNeg = new Complex(-b.Real, -b.Imaginary);
+            var deltaSqrt = delta.FirstRoot(2);
+            var denominator = new Complex(a.Real*2, a.Imaginary*2);
+
+            // Return the solutions
+            return new[] { (bNeg + deltaSqrt) / denominator, (bNeg - deltaSqrt) / denominator };
         }
         #endregion
         #region ToString

@@ -75,6 +75,69 @@
             Overloads the division operator.
             </summary>
         </member>
+        <member name="M:Binarysharp.Maths.Complex.op_Implicit(System.Int16)~Binarysharp.Maths.Complex">
+            <summary>
+            Defines an implicit conversion of a short to a complex number.
+            </summary>
+            <param name="value">The value to convert to a complex number.</param>
+            <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        </member>
+        <member name="M:Binarysharp.Maths.Complex.op_Implicit(System.UInt16)~Binarysharp.Maths.Complex">
+            <summary>
+            Defines an implicit conversion of an unsigned short to a complex number.
+            </summary>
+            <param name="value">The value to convert to a complex number.</param>
+            <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        </member>
+        <member name="M:Binarysharp.Maths.Complex.op_Implicit(System.Int32)~Binarysharp.Maths.Complex">
+            <summary>
+            Defines an implicit conversion of an integer to a complex number.
+            </summary>
+            <param name="value">The value to convert to a complex number.</param>
+            <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        </member>
+        <member name="M:Binarysharp.Maths.Complex.op_Implicit(System.UInt32)~Binarysharp.Maths.Complex">
+            <summary>
+            Defines an implicit conversion of an unsigned integer to a complex number.
+            </summary>
+            <param name="value">The value to convert to a complex number.</param>
+            <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        </member>
+        <member name="M:Binarysharp.Maths.Complex.op_Implicit(System.Int64)~Binarysharp.Maths.Complex">
+            <summary>
+            Defines an implicit conversion of a long to a complex number.
+            </summary>
+            <param name="value">The value to convert to a complex number.</param>
+            <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        </member>
+        <member name="M:Binarysharp.Maths.Complex.op_Implicit(System.UInt64)~Binarysharp.Maths.Complex">
+            <summary>
+            Defines an implicit conversion of an unsigned long to a complex number.
+            </summary>
+            <param name="value">The value to convert to a complex number.</param>
+            <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        </member>
+        <member name="M:Binarysharp.Maths.Complex.op_Implicit(System.Single)~Binarysharp.Maths.Complex">
+            <summary>
+            Defines an implicit conversion of a float to a complex number.
+            </summary>
+            <param name="value">The value to convert to a complex number.</param>
+            <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        </member>
+        <member name="M:Binarysharp.Maths.Complex.op_Implicit(System.Double)~Binarysharp.Maths.Complex">
+            <summary>
+            Defines an implicit conversion of a double to a complex number.
+            </summary>
+            <param name="value">The value to convert to a complex number.</param>
+            <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        </member>
+        <member name="M:Binarysharp.Maths.Complex.op_Implicit(System.Decimal)~Binarysharp.Maths.Complex">
+            <summary>
+            Defines an implicit conversion of a decimal to a complex number.
+            </summary>
+            <param name="value">The value to convert to a complex number.</param>
+            <returns>An object that contains the value of the parameter as its real part and zero as its imaginary part.</returns>
+        </member>
         <member name="M:Binarysharp.Maths.Complex.Power(System.Double)">
             <summary>
             Returns the complex number raised to a power specified by a double-precision floating-point number.
@@ -104,6 +167,15 @@
             <param name="b">The linear coefficient.</param>
             <param name="c">The constant term.</param>
             <returns>An array containing the solution(s).</returns>
+        </member>
+        <member name="M:Binarysharp.Maths.Complex.SolveQuadraticEquation(Binarysharp.Maths.Complex,Binarysharp.Maths.Complex,Binarysharp.Maths.Complex)">
+            <summary>
+            Solves a quadratic equation with complex coefficients written in the form: ax^2 + bx + c = 0.
+            </summary>
+            <param name="a">The quadratic coefficient (must be different from zero).</param>
+            <param name="b">The linear coefficient.</param>
+            <param name="c">The constant term.</param>
+            <returns>>An array containing the solution(s).</returns>
         </member>
         <member name="M:Binarysharp.Maths.Complex.ToString">
             <summary>
