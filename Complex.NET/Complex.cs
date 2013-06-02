@@ -186,6 +186,13 @@ namespace Binarysharp.Maths
             var denominator = Math.Pow(right.Real, 2) + Math.Pow(right.Imaginary, 2);
             return new Complex(numerator.Real / denominator, numerator.Imaginary / denominator);
         }
+        /// <summary>
+        /// Overloads the unary minus operator.
+        /// </summary>
+        public static Complex operator -(Complex value)
+        {
+            return new Complex(-value.Real, -value.Imaginary);
+        }
         #region Implicit operators
         /// <summary>
         /// Defines an implicit conversion of a short to a complex number.
@@ -350,12 +357,11 @@ namespace Binarysharp.Maths
             var delta = b.Power(2) - new Complex(4 * ((a * c).Real), 4 * (a * c).Imaginary);
 
             // Compute the parts of the solutions
-            var bNeg = new Complex(-b.Real, -b.Imaginary);
             var deltaSqrt = delta.FirstRoot(2);
             var denominator = new Complex(a.Real*2, a.Imaginary*2);
 
             // Return the solutions
-            return new[] { (bNeg + deltaSqrt) / denominator, (bNeg - deltaSqrt) / denominator };
+            return new[] { (-b + deltaSqrt) / denominator, (-b - deltaSqrt) / denominator };
         }
         #endregion
         #region ToString

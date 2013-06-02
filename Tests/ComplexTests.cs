@@ -109,12 +109,12 @@ namespace Tests
             var c3 = Complex.FromPolarCoordinates(5, 0);
 
 
-            Assert.AreEqual(1d, c1.Real);
-            Assert.AreEqual(1d, c1.Imaginary);
+            Assert.AreEqual(1d, Math.Round(c1.Real, 5));
+            Assert.AreEqual(1d, Math.Round(c1.Imaginary, 5));
             Assert.AreEqual(Math.Round(4 * Math.Sqrt(3), 14), c2.Real);
-            Assert.AreEqual(4, c2.Imaginary);
-            Assert.AreEqual(5, c3.Real);
-            Assert.AreEqual(0, c3.Imaginary);
+            Assert.AreEqual(4, Math.Round(c2.Imaginary, 5));
+            Assert.AreEqual(5, Math.Round(c3.Real, 5));
+            Assert.AreEqual(0, Math.Round(c3.Imaginary, 5));
         }
 
         [TestMethod]

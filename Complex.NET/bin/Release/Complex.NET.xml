@@ -75,6 +75,11 @@
             Overloads the division operator.
             </summary>
         </member>
+        <member name="M:Binarysharp.Maths.Complex.op_UnaryNegation(Binarysharp.Maths.Complex)">
+            <summary>
+            Overloads the unary minus operator.
+            </summary>
+        </member>
         <member name="M:Binarysharp.Maths.Complex.op_Implicit(System.Int16)~Binarysharp.Maths.Complex">
             <summary>
             Defines an implicit conversion of a short to a complex number.
