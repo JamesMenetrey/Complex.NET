@@ -43,7 +43,7 @@ namespace Binarysharp.Maths
         /// </summary>
         public double Modulus
         {
-            get { return Math.Sqrt(Math.Pow(Real, 2) + Math.Pow(Imaginary, 2)); }
+            get { return Math.Sqrt((Real * Real) + (Imaginary * Imaginary)); }
         }
         #endregion
         #region Quadrant
